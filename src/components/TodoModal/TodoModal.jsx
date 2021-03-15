@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Form, Modal } from "antd";
 import { observer } from "mobx-react";
 import TodoEditor from "../TodoEditor/TodoEditor";
 
 const TodoModal = observer(({ AppState }) => {
   const [form] = Form.useForm();
+  useEffect(() => form.resetFields(), [AppState.modal.id]);
 
   const {
     modal: { id },
@@ -16,7 +17,6 @@ const TodoModal = observer(({ AppState }) => {
 
   const onFinish = (values) => {
     console.log("Success:", values);
-    console.log(initialTodoProps);
     initialTodoProps
       ? AppState.toDoList.editToDo(id, values)
       : AppState.toDoList.newToDo(values);

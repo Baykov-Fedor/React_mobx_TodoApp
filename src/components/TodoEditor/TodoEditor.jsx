@@ -12,8 +12,8 @@ const TodoEditor = observer(({ AppState, form, initialTodoProps }) => {
         span: 14,
       }}
       layout="horizontal"
-      initialValues={initialTodoProps}
       form={form}
+      initialValues={initialTodoProps}
     >
       <Form.Item
         label="Title"
@@ -36,6 +36,7 @@ const TodoEditor = observer(({ AppState, form, initialTodoProps }) => {
       <Form.Item label="Important" name="important">
         <Switch />
       </Form.Item>
+      <p>{JSON.stringify(initialTodoProps)}</p>
     </Form>
   );
 });

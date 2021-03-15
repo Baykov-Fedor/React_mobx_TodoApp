@@ -16,8 +16,8 @@ export class ToDoList {
   }
 
   editToDo(id, newOptions) {
-    let todo = this.todos.find((todo) => id === todo.id);
-    todo = Object.assign(todo, newOptions);
+    let index = this.todos.findIndex((todo) => id === todo.id);
+    this.todos[index] = { ...this.todos[index], ...newOptions };
   }
 
   constructor(todos) {

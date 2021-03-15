@@ -19,7 +19,6 @@ export class Modal {
   }
 
   closeModal() {
-    this.id = null;
     this.isOpened = false;
   }
 }
